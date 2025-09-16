@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasnaa EL-Bassiouny - Product Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0A;
+            color: #E0E0E0;
+        }
+        .text-gray-400 {
+            color: #BABABA !important;
+        }
+        hr {
+            color: rgba(232, 235, 237, 0.2) !important;
+            border-color: rgba(232, 235, 237, 0.2) !important;
+        }
+        .gradient-border {
+            position: relative;
+            background-clip: padding-box; /* Clips the background from bleeding into the border area */
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -2px; /* This should match the border width */
+            border-radius: inherit; /* This makes the gradient follow the rounded corners */
+            background: linear-gradient(to bottom right, #595959, #333333, #0a0a0a, #0a0a0a);
+        }
+        .gradient-background {
+            background: linear-gradient(150deg, rgba(25, 25, 25, 0.8) 0%, rgb(17, 17, 17) 100%);
+        }
+        .testimonial-gradient-bg {
+            background: linear-gradient(180deg, #1C1C1C 0%, #0F0F0F 100%);
+        }
+        .btn-gradient {
+            /* background: linear-gradient(90deg, rgba(0, 201, 167, 1) 0%, rgba(0, 150, 125, 1) 100%); */
+            background: rgba(0, 201, 167, 1);
+        }
+        .btn-outline-gradient {
+            background: linear-gradient(to right, #1E1E1E, #1E1E1E) padding-box,
+                        linear-gradient(to right, #4F4F4F, #1A1A1A) border-box;
+            border: 2px solid transparent;
+        }
+        .section-title-gradient {
+            background: -webkit-linear-gradient(#FFFFFF, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .case-study-hero-bg {
+            background-color: #111111;
+        }
+        .text-primary-green {
+            color: rgba(0, 201, 167, 1);
+        }
+        .hover\:text-primary-green-dark:hover {
+            color: rgba(0, 150, 125, 1);
+        }
+        .text-gradient-green {
+            background: linear-gradient(90deg, rgba(0, 201, 167, 1) 0%, rgba(0, 150, 125, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .quote-gradient {
+            background: linear-gradient(to right, rgba(255, 77, 0, 1), rgba(255, 168, 0, 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .case-study-btn {
+            background-color: rgba(80, 80, 80, 0.46);
+            transition: background 0.3s ease;
+        }
+        .case-study-btn:hover {
+            background: linear-gradient(90deg, rgba(0, 201, 167, 1) 0%, rgba(0, 150, 125, 1) 100%);
+        }
+        .footer-bg {
+            background-color: #0A0A0A;
+            position: relative;
+            overflow: hidden;
+        }
+        .footer-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('assets/images/footer-bkg.png');
+            background-position: center;
+            background-size: cover;
+            filter: invert(1);
+            opacity: 0.02;
+            z-index: 1;
+        }
+        .footer-bg > div {
+            position: relative;
+            z-index: 2;
+        }
+        .creator-avatar {
+            background-image: url('assets/images/hasnaa.png'), linear-gradient(to bottom, rgba(0, 124, 145, 1), rgba(0, 201, 167, 1));
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* --- Styles for Infinite Carousel (UPDATED) --- */
+        @keyframes infinite-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .logos-slider {
+            /* overflow: hidden; */
+            white-space: nowrap;
+            /* -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent); */
+            /* mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent); */
+        }
+        .logos-slide-track {
+            display: flex;
+            align-items: center; 
+            animation: infinite-scroll 60s linear infinite;
+        }
+        .logos-slider:hover .logos-slide-track {
+            animation-play-state: paused;
+        }
+        .logos-slide-track img {
+            flex-shrink: 0;
+        }
+        /* --- End of Carousel Styles --- */
+
+        .step-circle {
+            background: rgba(58, 96, 91, 0.2);
+            border: 1px solid rgba(0, 232, 198, 0.12);
+            color: rgba(0, 232, 198, 1);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <header class="fixed top-4 inset-x-0 z-50 px-4">
+        <nav class="container mx-auto bg-black/50 backdrop-blur-lg rounded-full border border-white/10 px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="text-2xl font-bold page-link">HE</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-white page-link">Home</a>
+                    <a href="#services" class="hover:text-white page-link">Services</a>
+                    <a href="#projects" class="hover:text-white page-link">Projects</a>
+                    <a href="#contact" class="hover:text-white page-link">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                     <a href="assets/cv/Hasnaa-El-Bassiouny.pdf" class="hidden md:block px-6 py-2 rounded-full text-white btn-gradient hover:opacity-90 transition-opacity" target="_blank">Download CV</a>
+                     <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden container mx-auto mt-2 bg-black/80 backdrop-blur-lg rounded-2xl border border-white/10 px-6 pb-4 pt-4">
+            <a href="#home" class="block py-2 page-link">Home</a>
+            <a href="#services" class="block py-2 page-link">Services</a>
+            <a href="#projects" class="block py-2 page-link">Projects</a>
+            <a href="#contact" class="block py-2 page-link">Contact</a>
+            <a href="assets/cv/Hasnaa-El-Bassiouny.pdf" class="block mt-2 px-6 py-2 rounded-full text-white btn-gradient text-center" target="_blank">Download CV</a>
+        </div>
+    </header>
+
+    <div id="page-content">
+        <main id="home-page" class="page">
+            <section class="pt-32">
+                <div class="container mx-auto px-6">
+                    <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                        <div class="md:w-3/5 text-center md:text-left">
+                            <h1 class="text-5xl md:text-5xl font-bold leading-tight">Hi! I Am <br> <span class="section-title-gradient">Hasnaa EL-Bassiouny</span></h1>
+                            <p class="mt-6 text-lg max-w-xl mx-auto md:mx-0">A passionate and innovative Product Designer on a mission to bring new ideas to life and transform how users interact with technology.</p>
+                            <a href="https://www.linkedin.com/in/hasnaa-el-bassiouny/" class="mt-8 inline-block px-8 py-3 rounded-xl text-white btn-gradient font-semibold" target="_blank">Linkedin Profile</a>
+                        </div>
+                        <div class="md:w-2/5">
+                            <img src="assets/images/hasnaa.png" alt="Hasnaa EL-Bassiouny" class="rounded-3xl mx-auto transform -scale-x-100">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="py-16">
+                <div class="-mt-16 relative z-10">
+                    <div class="gradient-background gradient-border py-8 logos-slider">
+                        <div class="logos-slide-track">
+                            <img src="assets/images/logo-1.png" alt="Client Logo 1" class="mx-10">
+                            <img src="assets/images/logo-2.png" alt="Client Logo 2" class="mx-10">
+                            <img src="assets/images/logo-3.png" alt="Client Logo 3" class="mx-10">
+                            <img src="assets/images/logo-4.png" alt="Client Logo 4" class="mx-10">
+                            <img src="assets/images/logo-5.png" alt="Client Logo 5" class="mx-10">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services" class="py-20">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-xl md:text-2xl font-bold">How Can I Assist You?</h2>
+                    <div class="mt-6 grid md:grid-cols-2 gap-8">
+                        <div class="gradient-background gradient-border p-8 rounded-2xl relative">
+                            <div class="flex items-center gap-4">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                                    <rect x="12" y="0" width="16.97" height="16.97" rx="3" transform="rotate(45 12 0)" fill="rgba(59, 130, 246, 1)"/>
+                                </svg>
+                                <h3 class="text-lg font-bold">Product Design</h3>
+                            </div>
+                            <hr class="my-4">
+                            <p class="text-lg text-gray-400">I design end-to-end product experiences, from user flows and wireframes to high-fidelity interfaces. By balancing business goals with user needs, I create solutions that are intuitive, scalable, and visually engaging across platforms.</p>
+                            <div class="absolute bottom-4 right-4 text-xl font-light text-white/60 select-none">01</div>
+                        </div>
+                        <div class="gradient-background gradient-border p-8 rounded-2xl relative">
+                            <div class="flex items-center gap-4">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                                    <rect x="12" y="0" width="16.97" height="16.97" rx="3" transform="rotate(45 12 0)" fill="rgba(59, 130, 246, 1)"/>
+                                </svg>
+                                <h3 class="text-lg font-bold">Market & User Research</h3>
+                            </div>
+                            <hr class="my-4">
+                            <p class="text-lg text-gray-400">I conduct research to uncover user behaviors, needs, and pain points, combining market insights with usability studies. This helps validate assumptions, define opportunities, and guide design decisions that align with both users and business.</p>
+                            <div class="absolute bottom-4 right-4 text-xl font-light text-white/60 select-none">02</div>
+                        </div>
+                        <div class="gradient-background gradient-border p-8 rounded-2xl relative">
+                            <div class="flex items-center gap-4">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                                    <rect x="12" y="0" width="16.97" height="16.97" rx="3" transform="rotate(45 12 0)" fill="rgba(59, 130, 246, 1)"/>
+                                </svg>
+                                <h3 class="text-lg font-bold">UX Auditing</h3>
+                            </div>
+                            <hr class="my-4">
+                            <p class="text-lg text-gray-400">I evaluate digital products through detailed UX audits, Identifying usability issues, accessibility gaps, and design inconsistencies. My goal is to provide actionable recommendations that improve efficiency, clarity, and overall user satisfaction.</p>
+                            <div class="absolute bottom-4 right-4 text-xl font-light text-white/60 select-none">03</div>
+                        </div>
+                        <div class="gradient-background gradient-border p-8 rounded-2xl relative">
+                            <div class="flex items-center gap-4">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                                    <rect x="12" y="0" width="16.97" height="16.97" rx="3" transform="rotate(45 12 0)" fill="rgba(59, 130, 246, 1)"/>
+                                </svg>
+                                <h3 class="text-lg font-bold">Design Systems & Handoff</h3>
+                            </div>
+                            <hr class="my-4">
+                            <p class="text-lg text-gray-400">I build scalable design systems using atomic components and design tokens, ensuring consistency across products. Alongside this, I prepare developer-friendly handoffs with clear documentation and extracted HTML/CSS, bridging the gap between design and code.</p>
+                            <div class="absolute bottom-4 right-4 text-xl font-light text-white/60 select-none">04</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="py-20">
+                <div class="container mx-auto px-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl md:text-2xl font-bold">Projects</h2>
+                        <a href="#portfolio-page" class="text-sm font-semibold text-gray-300 hover:text-white hidden md:inline-flex items-center gap-2 page-link">
+                            View Projects
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="gradient-background gradient-border p-6 rounded-2xl flex flex-col">
+                           <div class="h-80 w-full overflow-hidden rounded-lg mb-6">
+                                <img src="assets/images/Secure ZMK Import Workflow.jpg" alt="Secure ZMK Import Workflow" class="w-full h-full object-cover">
+                           </div>
+                            <h3 class="text-2xl font-bold">Secure ZMK Import Workflow</h3>
+                            <p class="mt-4 text-gray-400 flex-grow">Redesigning the high-stakes ZMK Import process into a clear, compliant, and stress-free user journey for Super Admins and Custodians.</p>
+                            <a href="#zmk-case-study" class="mt-6 self-start inline-block px-8 py-3 rounded-xl text-white font-semibold page-link case-study-btn">View Case study</a>
+                        </div>
+                        <div class="gradient-background gradient-border p-6 rounded-2xl flex flex-col">
+                            <div class="h-80 w-full overflow-hidden rounded-lg mb-6">
+                                <img src="assets/images/Basata app.jpg" alt="Basata APP" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-2xl font-bold">Basata APP UI Innovation Sprint</h3>
+                            <p class="mt-4 text-gray-400 flex-grow">I assessed the UI elements and interactions through Nielsen's Heuristics and UI Principles, then proposed focused improvements to enhance usability and user confidence.</p>
+                            <a href="#basata-case-study" class="mt-6 self-start inline-block px-8 py-3 rounded-xl text-white font-semibold page-link case-study-btn">View Case study</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20">
+                <div class="container mx-auto px-6">
+                     <div class="flex items-center justify-center gap-4 mb-8">
+                         <span class="w-3 h-3 rounded-full btn-gradient"></span>
+                         <h2 class="text-xl font-light">Testimonials</h2>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-center">Don't take my <br> word for it<span class="text-gradient-green">*</span> <br> <span class="text-2xl"><span class="text-gradient-green">*</span> Take Theirs</span></h2>
+                    <div class="mt-16 grid md:grid-cols-3 gap-8">
+                        <div class="testimonial-gradient-bg gradient-border p-8 rounded-2xl relative flex flex-col">
+                            <span class="absolute top-4 right-4 text-5xl quote-gradient">❞</span>
+                            <p class="flex-grow text-xl font-light text-left">"Working With Hasnaa Has Been An Absolute Pleasure. She Possesses The Ability To Take Complex Problems And Transform Them Into Clear, Intuitive Designs That Truly Make Sense. What Sets Her Apart Is Her Exceptional Attention To Detail. She Consistently Identifies Nuances That Others Might..."</p>
+                            <a href="https://www.linkedin.com/in/hasnaa-el-bassiouny/details/recommendations/?detailScreenTabIndex=0" class="text-gradient-green font-semibold self-start mt-2" target="_blank">See more</a>
+                            <div class="mt-6 flex items-center gap-4">
+                                <img src="assets/images/shrook-ashraf.jpg" alt="Shrook Ashraf" class="rounded-full w-12 h-12">
+                                <div>
+                                    <p class="font-bold">SHROOK ASHRAF</p>
+                                    <p class="text-sm text-gray-400">Senior UX/UI designer at Cogent Infomedia</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-gradient-bg gradient-border p-8 rounded-2xl relative flex flex-col">
+                            <span class="absolute top-4 right-4 text-5xl quote-gradient">❞</span>
+                            <p class="flex-grow text-xl font-light text-left">"I Had The Opportunity To Have Hasnaa Report Directly To Me As A UI/UX Designer On One Of Our Website Projects Serving Egypt, UAE, And KSA, Throughout Her Work, She Demonstrated Professionalism, Creativity, And A Strong Ability To Translate Complex Requirements into Intuitive..."</p>
+                            <a href="https://www.linkedin.com/in/hasnaa-el-bassiouny/details/recommendations/?detailScreenTabIndex=0" class="text-gradient-green font-semibold self-start mt-2" target="_blank">See more</a>
+                            <div class="mt-6 flex items-center gap-4">
+                                <img src="assets/images/ahmed-ghazouly.jpg" alt="Ahmed Ghazouly" class="rounded-full w-12 h-12">
+                                <div>
+                                    <p class="font-bold">AHMED GHAZOULY</p>
+                                    <p class="text-sm text-gray-400">Founder CEO at Frogz Advertising Agency</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-gradient-bg gradient-border p-8 rounded-2xl relative flex flex-col">
+                            <span class="absolute top-4 right-4 text-5xl quote-gradient">❞</span>
+                            <p class="flex-grow text-xl font-light text-left">"Working With Hasnaa Was A Great Experience. She Had A Unique Way Of Simplifying Flows And Anticipating User Errors Before They Even Reached QA. This Helped Me And The Development Team Avoid Many Potential Issues Were Avoided Thanks To Her Eye For Detail And Proactive..."</p>
+                            <a href="https://www.linkedin.com/in/hasnaa-el-bassiouny/details/recommendations/?detailScreenTabIndex=0" class="text-gradient-green font-semibold self-start mt-2" target="_blank">See more</a>
+                            <div class="mt-6 flex items-center gap-4">
+                               <img src="https://placehold.co/48x48/1A1A1A/FFFFFF?text=MA" alt="Muhammad Alkady" class="rounded-full w-12 h-12">
+                                <div>
+                                    <p class="font-bold">MUHAMMAD ALKADY</p>
+                                    <p class="text-sm text-gray-400">Senior Android Developer at PayTabs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <main id="portfolio-page" class="page hidden">
+            <div class="pt-32">
+                <div class="container mx-auto px-6 text-left">
+                    <h1 class="text-xl md:text-2xl font-bold">Portfolio</h1>
+                    <p class="mt-4 text-lg text-gray-300">A selection of my work. Each project showcases my process for solving complex problems through user-centered design.</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-6 py-16">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="gradient-background gradient-border p-6 rounded-2xl flex flex-col">
+                       <div class="h-80 w-full overflow-hidden rounded-lg mb-6">
+                            <img src="assets/images/Secure ZMK Import Workflow.jpg" alt="Secure ZMK Import Workflow" class="w-full h-full object-cover">
+                       </div>
+                        <h3 class="text-2xl font-bold">Secure ZMK Import Workflow</h3>
+                        <p class="mt-4 text-gray-400 flex-grow">Redesigning the high-stakes ZMK Import process into a clear, compliant, and stress-free user journey for Super Admins and Custodians.</p>
+                        <a href="#zmk-case-study" class="mt-6 self-start inline-block px-8 py-3 rounded-xl text-white font-semibold page-link case-study-btn">View Case study</a>
+                    </div>
+                    <div class="gradient-background gradient-border p-6 rounded-2xl flex flex-col">
+                        <div class="h-80 w-full overflow-hidden rounded-lg mb-6">
+                            <img src="assets/images/Basata app.jpg" alt="Basata APP" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold">Basata APP UI Innovation Sprint</h3>
+                        <p class="mt-4 text-gray-400 flex-grow">I assessed the UI elements and interactions through Nielsen's Heuristics and UI Principles, then proposed focused improvements to enhance usability and user confidence.</p>
+                        <a href="#basata-case-study" class="mt-6 self-start inline-block px-8 py-3 rounded-xl text-white font-semibold page-link case-study-btn">View Case study</a>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <p class="text-gray-400 text-lg">More projects are in progress and will be added soon...</p>
+                </div>
+            </div>
+        </main>
+
+        <main id="zmk-case-study" class="page hidden">
+            <div class="pt-32">
+                <div class="container mx-auto px-6 text-left">
+                    <h1 class="text-xl md:text-2xl font-bold">🔐 Secure ZMK Import Workflow</h1>
+                    <p class="mt-4 text-lg text-gray-300">Redesigning one of the most critical and high-stakes security processes ZMK Import into a clear, stress-free, and compliant user journey that empowers both Super Admins and Custodians.</p>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 py-16">
+                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left border-b border-gray-800 pb-8 mb-12">
+                    <div>
+                        <h3 class="text-xl mb-1">Role</h3>
+                        <p class="font-normal text-xl" style="color: rgba(156, 156, 156, 1);">UX/UI designer</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-1">Duration</h3>
+                        <p class="font-normal text-xl" style="color: rgba(156, 156, 156, 1);">3 weeks</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-1">Company</h3>
+                        <p class="font-normal text-xl" style="color: rgba(156, 156, 156, 1);">PayTabs</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-1">Tools</h3>
+                        <p class="font-normal text-xl" style="color: rgba(156, 156, 156, 1);">Figma, Figjam</p>
+                    </div>
+                </div>
+
+                <div class="mx-auto mb-12">
+                    <img src="assets/images/zmk-1.jpg" alt="ZMK Import Workflow UI" class="rounded-2xl w-full">
+                </div>
+
+                <div class="mx-auto">
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">Overview</h3>
+                        <hr class="my-4">
+                        <p class="text-lg text-gray-400">At PayTabs, one of the top priorities is securing cryptographic keys used in banking and payment transactions. As a UX/UI Designer, my responsibility was to redesign the ZMK Import Workflow to make it clearer, safer, and fully aligned with PCI DSS compliance requirements, while also integrating it into a scalable Design System for future growth.</p>
+                    </div>
+
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">What is ZMK Import?</h3>
+                        <hr class="my-4">
+                        <ul class="list-disc list-inside space-y-2 text-lg text-gray-400">
+                            <li>A ZMK (Zone Master Key) is a master key used to securely exchange cryptographic keys between HSMs (Hardware Security Modules) and other systems.</li>
+                            <li>It is split into multiple parts (components).</li>
+                            <li>Each part is held by a different Custodian.</li>
+                            <li>The ZMK is only formed when all Custodians enter their components.</li>
+                            <li>This ensures Separation of Duties—no single person can ever own or control the entire key, significantly reducing fraud or misuse risks.</li>
+                        </ul>
+                    </div>
+
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">Business Context</h3>
+                        <hr class="my-4">
+                        <ul class="list-disc list-inside space-y-2 text-lg text-gray-400">
+                            <li>The process is essential for any payment company to guarantee the integrity and security of transactions. Custodians and Super Admins ensure no single individual has control over a sensitive key.</li>
+                            <li>By providing a clear interface, PayTabs reduces the risk of human error and ensures PCI DSS compilance.</li>
+                            <li>This builds trust with banks, partners, and regulators.</li>
+                        </ul>
+                    </div>
+
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">PCI DSS Requirements Addressed</h3>
+                        <hr class="my-4">
+                        <div class="grid md:grid-cols-[2fr_1fr] gap-8 items-center mt-4">
+                            <div class="space-y-6">
+                                <p class="text-lg text-gray-400 mb-4">The redesigned workflow directly supports critical PCI DSS requirements:</p>
+                                <ul class="list-disc list-inside space-y-2 text-lg text-gray-400">
+                                    <li><b>Req 3:</b> Protect stored cardholder date—strict key management.</li>
+                                    <li><b>Req 7:</b> Restrict access by role (Super Admin vs Custodians).</li>
+                                    <li><b>Req 8:</b> Individual authentication for each Custodian.</li>
+                                    <li><b>Req 10:</b> Track and monitor all access with an audit trail.</li>
+                                    <li><b>Req 12:</b> Enforce Separation of Duties as part of security policies.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="assets/images/zmk-2.png" alt="Steps 2-4" class="rounded-lg max-w-xs m-auto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="gradient-background gradient-border p-8 rounded-2xl h-full">
+                            <h3 class="text-lg font-bold">The Challenge</h3>
+                            <hr class="my-4">
+                            <ul class="list-disc list-inside space-y-2 text-lg text-gray-400">
+                                <li>The old process was manual and complex, with a high risk of error.</li>
+                                <li>No clear navigation to indicate the current step.</li>
+                                <li>Insufficient validation for Component Values and KCV.</li>
+                                <li>Users were under pressure—any mistake could disrupt critical payment systems.</li>
+                                <li>The solution had to align with the Design System to support scalability and efficiency.</li>
+                            </ul>
+                        </div>
+                        <div class="gradient-background gradient-border p-8 rounded-2xl h-full">
+                            <h3 class="text-lg font-bold">Design Goals</h3>
+                            <hr class="my-4">
+                            <ul class="list-disc list-inside space-y-2 text-lg text-gray-400">
+                                <li>Simplify steps for each role (Super Admin/Custodians).</li>
+                                <li>Provide clear validation to reduce errors.</li>
+                                <li>Add progress indicators and a summary screen.</li>
+                                <li>Build modular Design System components using an Atomic Design approach.</li>
+                                <li>Deliver Extracted HTML/CSS code from Figma to speed up developer handoff.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8 py-8">
+                        <div class="mb-8">
+                            <h3 class="text-lg font-bold text-left mb-4">Task Flow (Super Admin)</h3>
+                            <div class="flex flex-wrap items-center justify-start gap-x-2 gap-y-4">
+                                <div class="gradient-background gradient-border px-6 py-3 rounded-2xl">Initiate import</div>
+                                <svg class="w-6 h-6" style="color: rgba(26, 218, 190, 1);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                <div class="gradient-background gradient-border px-6 py-3 rounded-2xl">Monitor Status</div>
+                                <svg class="w-6 h-6" style="color: rgba(26, 218, 190, 1);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                <div class="gradient-background gradient-border px-6 py-3 rounded-2xl">Review KCVs</div>
+                                <svg class="w-6 h-6" style="color: rgba(26, 218, 190, 1);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                <div class="gradient-background gradient-border px-6 py-3 rounded-2xl">Combine & Import</div>
+                                 <svg class="w-6 h-6" style="color: rgba(26, 218, 190, 1);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                <div class="gradient-background gradient-border px-6 py-3 rounded-2xl">Confirmation</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-left mb-4">Task Flow (Custodians)</h3>
+                            <div class="flex flex-wrap items-center justify-start gap-x-2 gap-y-4">
+                                <div class="gradient-background gradient-border px-6 py-3 rounded-2xl">Login</div>
+                                <svg class="w-6 h-6" style="color: rgba(26, 218, 190, 1);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                <div class="gradient-background gradient-border px-6 py-3 rounded-2xl">Enter Component / KCV</div>
+                                <svg class="w-6 h-6" style="color: rgba(26, 218, 190, 1);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                <div class="gradient-background gradient-border px-6 py-3 rounded-2xl">Submit</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">Design System Integration</h3>
+                        <hr class="my-4">
+                        <div class="grid md:grid-cols-[2fr_1fr] gap-8 items-center mt-4">
+                            <div class="space-y-6">
+                                <ul class="list-disc list-inside space-y-2 text-lg text-gray-400">
+                                    <li>Developed reusable components with Atomic Design principles.</li>
+                                    <li>Improved consistency across PayTabs products.</li>
+                                    <li>Changes to a single atomic element propagate across the system, ensuring scalability.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="assets/images/zmk-3.png" alt="Steps 2-4" class="rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">Developer Handoff</h3>
+                        <hr class="my-4">
+                        <div class="grid md:grid-cols-[2fr_1fr] gap-8 items-center mt-4">
+                            <div class="space-y-6">
+                                <ul class="list-disc list-inside space-y-2 text-lg text-gray-400">
+                                    <li>Used 'Variables to JSON' plugin (Exported design as JSON).</li>
+                                    <li><b>Transformation:</b> Used Style Dictionary to convert JSON tokens into CSS format.</li>
+                                    <li>Bridged the gap between design and code, enabling faster development and pixel-perfect accuracy.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="assets/images/zmk-4.png" alt="Steps 2-4" class="rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">Documentation Approach</h3>
+                        <hr class="my-4">
+                        <div class="grid md:grid-cols-[2fr_1fr] gap-8 items-center mt-4">
+                            <div class="space-y-6">
+                                <p class="text-lg text-gray-400">Instead of leaving variables as plain code, I documented them visually using a mind map and structured tables. This approach reduced onboarding time for developers, ensured consistency across components, and made the Design System more intuitive to navigate.</p>
+                            </div>
+                            <div>
+                                <img src="assets/images/zmk-5.png" alt="Steps 2-4" class="rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">ZMK Import Process</h3>
+                        <hr class="my-4">
+                        <div class="grid md:grid-cols-[2fr_1fr] gap-8 items-center mt-4">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Step 1: Custodian Input</h3>
+                                <p class="text-lg text-gray-400">Each Custodian logs in and submits their Component Value (32 digits) and KCV (6-8 digits) with real-time validation.</p>
+                            </div>
+                            <div>
+                                <img src="assets/images/zmk-6.png" alt="Step 1" class="rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">ZMK Import Process</h3>
+                        <hr class="my-4">
+                        <div class="grid md:grid-cols-[2fr_1fr] gap-8 items-center mt-4">
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Step 2: Review (Super Admin)</h3>
+                                    <p class="text-lg text-gray-400">The Super Admin reviews Custodian statuses and verifies all KCVs in a summary table.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Step 3: Combine Keys</h3>
+                                    <p class="text-lg text-gray-400">After verification, the Super Admin clicks "Combine", and the system merges all components into the final ZMK.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Step 4: Completion</h3>
+                                    <p class="text-lg text-gray-400">The process ends with a success or error summary, providing full transparency and audit readiness.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="assets/images/zmk-7.png" alt="Steps 2-4" class="rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">Outcome & Impact</h3>
+                        <hr class="my-4">
+                        <div class="grid md:grid-cols-[2fr_1fr] gap-8 items-center mt-4">
+                            <div class="space-y-6">
+                                
+                                <ul class="list-disc list-inside space-y-2 text-lg text-gray-400">
+                                    <li>Simplified the workflow, reducing completion time by 30%.</li>
+                                    <li>Cut input errors by 40% through validation and prompts.</li>
+                                    <li>Gave Super Admins full visibility into each step, boosting trust.</li>
+                                    <li>Improved consistency and reusability via atomic Design System components.</li>
+                                    <li>Accelerated development with HTML/CSS handoff from Figma.</li>
+                                    <li>Strengthened PCI DSS compliance with audit-ready documentation.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="assets/images/zmk-8.png" alt="Steps 2-4" class="rounded-lg m-auto" style="max-width: 200px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">Reflection</h3>
+                        <hr class="my-4">
+                        <p class="text-lg text-gray-400 mb-4">This project highlighted that the role of a UX/UI Designer goes beyond creating interfaces. It's about building scalable systems and balancing security compliance with user experience.</p>
+                        <p class="font-semibold mb-2">The final design delivered a workflow that is:</p>
+                        <ul class="list-disc list-inside space-y-2 text-lg text-gray-400 text-lg">
+                            <li><b>Clear:</b> guided steps and navigation.</li>
+                            <li><b>Secure:</b> enforced separation of duties, validation, and confirmations.</li>
+                            <li><b>User-friendly:</b> reduced stress in a sensitive security process.</li>
+                            <li><b>Scalable:</b> atomic components within a Design System.</li>
+                            <li><b>Developer-ready:</b> seamless handoff with HTML/CSS assets.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <main id="basata-case-study" class="page hidden">
+            <div class="pt-32">
+                 <div class="container mx-auto px-6 text-left">
+                    <h1 class="text-xl md:text-2xl font-bold">Basata APP UI Innovation Sprint</h1>
+                    <p class="mt-4 text-lg text-gray-200">Critique UI elements and interactions using Nielsen's Heuristics and UI Principles, then propose improvements.</p>
+                </div>
+            </div>
+
+             <div class="container mx-auto px-6 py-16">
+                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left border-b border-gray-800 pb-8 mb-12">
+                    <div>
+                        <h3 class="text-xl mb-1">Role</h3>
+                        <p class="font-normal text-xl" style="color: rgba(156, 156, 156, 1);">Research, Analysis, Ideation, UI designer</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-1">Duration</h3>
+                        <p class="font-normal text-xl" style="color: rgba(156, 156, 156, 1);">4 weeks</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-1">Company</h3>
+                        <p class="font-normal text-xl" style="color: rgba(156, 156, 156, 1);">Challenge</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-1">Tools</h3>
+                        <p class="font-normal text-xl" style="color: rgba(156, 156, 156, 1);">Figma, Figjam</p>
+                    </div>
+                </div>
+
+                <div class="mx-auto mb-12">
+                    <img src="assets/images/basata-1.png" alt="Basata App Hero" class="rounded-2xl w-full">
+                </div>
+
+                <div class="mx-auto">
+                    <div class="gradient-background gradient-border p-8 rounded-2xl mb-8">
+                        <h3 class="text-lg font-bold">Overview</h3>
+                        <hr class="my-4">
+                        <p class="text-gray-400 text-lg">Basata is an Egyptian e-payment service aiming to simplify daily payments and promote financial inclusion. As part of a design challenge, I conducted a UI heuristic evaluation to identify usability problems impacting navigation, task completion, and trust.</p>
+                        <h3 class="text-lg font-bold mt-6">Goal</h3>
+                        <hr class="my-4">
+                        <p class="text-gray-400 text-lg">Critique UI elements and interactions using Nielsen's Heuristics and UI Principles, then propose improvements.</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="gradient-background gradient-border p-6 rounded-2xl">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-normal">Step 1</h3>
+                                <span class="step-circle rounded-full w-7 h-8 flex items-center justify-center font-bold text-sm">01</span>
+                            </div>
+                            <hr class="my-4">
+                            <p class="font-normal text-xl">Domain Exploration</p>
+                            <p class="text-lg text-gray-400 mt-2">Explored fintech apps, identified usability issues and selected a key user flow with major pain points.</p>
+                        </div>
+                        <div class="gradient-background gradient-border p-6 rounded-2xl">
+                             <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-normal">Step 2</h3>
+                                <span class="step-circle rounded-full w-7 h-8 flex items-center justify-center font-bold text-sm">02</span>
+                            </div>
+                            <hr class="my-4">
+                            <p class="font-normal text-xl">Problem Definition</p>
+                            <p class="text-lg text-gray-400 mt-2">Defined usability problems by conducting a UI heuristic evaluation and documenting them systematically.</p>
+                        </div>
+                        <div class="gradient-background gradient-border p-6 rounded-2xl">
+                             <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-normal">Step 3</h3>
+                                <span class="step-circle rounded-full w-7 h-8 flex items-center justify-center font-bold text-sm">03</span>
+                            </div>
+                            <hr class="my-4">
+                            <p class="font-normal text-xl">UI Critique & Reporting</p>
+                            <p class="text-lg text-gray-400 mt-2">Analyzed the findings and organized them into a structured report to communicate the problems clearly.</p>
+                        </div>
+                        <div class="gradient-background gradient-border p-6 rounded-2xl">
+                             <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-normal">Step 4</h3>
+                                <span class="step-circle rounded-full w-7 h-8 flex items-center justify-center font-bold text-sm">04</span>
+                            </div>
+                            <hr class="my-4">
+                            <p class="font-normal text-xl">Iterations & Concept Development</p>
+                            <p class="text-lg text-gray-400 mt-2">Created iterations and alternative design concepts to validate issues and propose improved solutions.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 space-y-8">
+                        <div class="rounded-2xl">
+                            <img src="assets/images/basata-2.png" alt="Image 2" class="rounded-lg w-full">
+                        </div>
+                        <div class="rounded-2xl">
+                            <img src="assets/images/basata-3.png" alt="Image 3" class="rounded-lg w-full">
+                        </div>
+                        <div class="rounded-2xl">
+                            <img src="assets/images/basata-4.png" alt="Image 4" class="rounded-lg w-full">
+                        </div>
+                        <div class="rounded-2xl">
+                            <img src="assets/images/basata-5.png" alt="Image 5" class="rounded-lg w-full">
+                        </div>
+                        <div class="rounded-2xl">
+                            <img src="assets/images/basata-6.png" alt="Image 6" class="rounded-lg w-full">
+                        </div>
+                        <div class="rounded-2xl">
+                            <img src="assets/images/basata-7.png" alt="Image 7" class="rounded-lg w-full">
+                        </div>
+                        <div class="rounded-2xl">
+                            <a href="https://www.linkedin.com/posts/sayed-abdelaal_years-of-experience-leadership-you-activity-7321506609992482817-aweU?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADb-A3IB_X6pTk3LJJumUsGkF-PAh0ZMmPI" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/basata-8.png" alt="Image 8" class="rounded-lg w-full">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <footer id="contact" class="mt-20 footer-bg">
+        <div class="container mx-auto px-6 pt-16 pb-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-12">
+                <div>
+                    <h2 class="text-4xl font-bold">Shaping ideas into <br> experiences people love <br> intuitive, meaningful.</h2>
+                    <a href="#" class="mt-6 inline-block text-lg font-light text-gray-300 hover:text-white transition-colors">Let's Make an impact</a>
+                </div>
+                <div class="flex-shrink-0">
+                   <div class="flex items-center gap-6">
+                        <div class="creator-avatar rounded-full w-20 h-20 hidden md:block" role="img" aria-label="Hasnaa El-Bassiouny"></div>
+                        <div>
+                            <p class="text-lg font-bold">Hasnaa El-Bassiouny</p>
+                            <p>Product designer</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p>Let's connect to discuss how I can bring value to <br> your team and company.</p>
+                        <div class="flex justify-center md:justify-start space-x-4 mt-4">
+                            <a href="mailto:hasnaa1325@gmail.com" target="_blank" class="text-primary-green hover:text-primary-green-dark transition-colors">
+                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/hasnaa-el-bassiouny/" target="_blank" class="text-primary-green hover:text-primary-green-dark transition-colors">
+                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                            <a href="tel:+201062698117" target="_blank" class="text-primary-green hover:text-primary-green-dark transition-colors">
+                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.25 15.25 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm gap-4">
+                <p class="text-white">All rights reserved © 2025 Hasnaa El-Bassiouny.</p>
+                <div class="flex items-center gap-2 text-white">
+                    <span>Created by</span>
+                    <div class="creator-avatar rounded-full w-6 h-6" role="img" aria-label="Creator Initial"></div>
+                    <span>Hasnaa El-Bassiouny</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const pageLinks = document.querySelectorAll('.page-link');
+            const pages = document.querySelectorAll('.page');
+            const sections = ['home', 'services', 'projects', 'contact'];
+
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            function showPage(pageId) {
+                // Special handling for section links on the homepage
+                if (sections.includes(pageId)) {
+                    // Ensure home page is visible
+                    pages.forEach(p => p.id === 'home-page' ? p.classList.remove('hidden') : p.classList.add('hidden'));
+                    
+                    // Scroll to the section
+                    const sectionElement = document.getElementById(pageId);
+                    if (sectionElement) {
+                        setTimeout(() => {
+                           sectionElement.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                    } else if (pageId === 'home') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                    
+                    history.pushState(null, '', `#${pageId}`);
+                    return;
+                }
+
+                // Handle case study pages
+                pages.forEach(page => {
+                    if (page.id === pageId) {
+                        page.classList.remove('hidden');
+                    } else {
+                        page.classList.add('hidden');
+                    }
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                 history.pushState(null, '', `#${pageId}`);
+            }
+
+            pageLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    showPage(targetId);
+                     if (mobileMenu.classList.contains('hidden') === false) {
+                         mobileMenu.classList.add('hidden');
+                     }
+                });
+            });
+
+            window.addEventListener('popstate', () => {
+                const hash = window.location.hash.substring(1) || 'home-page';
+                 if (sections.includes(hash)) {
+                     showPage('home-page');
+                 } else if (hash === 'portfolio-page') {
+                     showPage('home-page');
+                 } else {
+                     showPage(hash);
+                 }
+            });
+
+            const initialHash = window.location.hash.substring(1);
+            if (initialHash) {
+                const targetPageId = initialHash.includes('case-study') ? initialHash : 'home-page';
+                showPage(targetPageId);
+                 if (sections.includes(initialHash)) {
+                     const sectionElement = document.getElementById(initialHash);
+                     if(sectionElement) sectionElement.scrollIntoView({ behavior: 'smooth' });
+                 }
+            } else {
+                showPage('home-page');
+            }
+
+            // === NEW SCRIPT FOR LOGO CAROUSEL LOGIC ===
+            const logosTrack = document.querySelector('.logos-slide-track');
+            if (logosTrack && logosTrack.children.length > 0) {
+                const originalLogos = Array.from(logosTrack.children);
+                
+                // Function to calculate the total width of the logos
+                const getTrackWidth = () => {
+                    let width = 0;
+                    Array.from(logosTrack.children).forEach(child => {
+                        width += child.offsetWidth;
+                        const style = window.getComputedStyle(child);
+                        width += parseInt(style.marginLeft) + parseInt(style.marginRight);
+                    });
+                    return width;
+                };
+
+                // Clone logos until the track is wide enough
+                while (getTrackWidth() < window.innerWidth * 2) {
+                    originalLogos.forEach(logo => {
+                        logosTrack.appendChild(logo.cloneNode(true));
+                    });
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
