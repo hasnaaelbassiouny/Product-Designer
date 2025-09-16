@@ -5,7 +5,7 @@ This repository contains the source code for the personal portfolio website of H
 
 *Replace the placeholder above with a screenshot of the live website. You can drag and drop an image into the GitHub editor to generate a link.*
 
-**Live Demo:** [**View Portfolio**](https://your-github-username.github.io/your-repo-name/)
+**Live Demo:** [**View Portfolio**](https://hasnaaelbassiouny.github.io/Product-Designer/#home)
 *Replace with your actual live URL, e.g., from GitHub Pages.*
 
 ---
